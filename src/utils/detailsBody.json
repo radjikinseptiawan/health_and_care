@@ -1,0 +1,18 @@
+[
+    {
+        "keterangan" : "Kekurangan Berat Badan",
+        "Deskripsi" : "Kamu kekurangan berat badan nih, yuk mulai atur gaya hidup agar lebih sehat, olahraga rutin, tidur yang cukup dan makan makanan yang bernutrisi!."
+    },
+    {   
+        "keterangan" : "Ideal",
+        "Deskripsi" : "Keren!, berat badan kamu sudah di kategori ideal. tetap pertahankan gaya hidup sehat kamu ya!."
+    },
+    {
+        "keterangan" : "Kelebihan Berat Badan",
+        "Deskripsi" : "Kamu kelebihan berat badan nih, yuk mulai lakukan diet teratur,olahraga rutin dan memulai defisit kalori di tubuh."
+    },
+    {
+        "keterangan" : "Obesitas",
+        "Deskripsi" : "Waduh!, kamu harus menurunkan berat badan kamu nih!. berat badan yang berlebih dapat beresiko untuk kesehatan tubuh, terutama serangan jantung dan penyakit lain nya."
+    }
+]
