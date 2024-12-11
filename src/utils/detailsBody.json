@@ -1,18 +1,31 @@
 [
     {
+        "id" : 1,
         "keterangan" : "Kekurangan Berat Badan",
-        "Deskripsi" : "Kamu kekurangan berat badan nih, yuk mulai atur gaya hidup agar lebih sehat, olahraga rutin, tidur yang cukup dan makan makanan yang bernutrisi!."
+        "Deskripsi" : "Kamu kekurangan berat badan nih, yuk mulai atur gaya hidup agar lebih sehat, olahraga rutin, tidur yang cukup dan makan makanan yang bernutrisi!.",
+        "selangkapnya" : "Jika hasil hitung indeks massa tubuh kamu 18.5 atau kurang dari 18.5 maka tubuh kamu kekurangan berat badan."
     },
     {   
+        "id" : 2,
         "keterangan" : "Ideal",
-        "Deskripsi" : "Keren!, berat badan kamu sudah di kategori ideal. tetap pertahankan gaya hidup sehat kamu ya!."
+        "Deskripsi" : "Keren!, berat badan kamu sudah di kategori ideal. tetap pertahankan gaya hidup sehat kamu ya!.",
+        "selangkapnya" : "Jika hasil hitung indeks massa tubuh kamu lebih dari 18.5 hingga kurang dari 24.9 maka tubuh kamu sudah berada di berat badan ideal."
     },
     {
+        "id" : 3,
         "keterangan" : "Kelebihan Berat Badan",
-        "Deskripsi" : "Kamu kelebihan berat badan nih, yuk mulai lakukan diet teratur,olahraga rutin dan memulai defisit kalori di tubuh."
+        "Deskripsi" : "Kamu kelebihan berat badan nih, yuk mulai lakukan diet teratur,olahraga rutin dan memulai defisit kalori di tubuh.",
+        "selangkapnya" : "Jika hasil hitung indeks massa tubuh kamu lebih dari dari 24.9 hingga kurang dari 29.9 maka tubuh kamu kelebihan berat badan."
     },
     {
+        "id" : 4,
         "keterangan" : "Obesitas",
-        "Deskripsi" : "Waduh!, kamu harus menurunkan berat badan kamu nih!. berat badan yang berlebih dapat beresiko untuk kesehatan tubuh, terutama serangan jantung dan penyakit lain nya."
+        "Deskripsi" : "Waduh!, kamu harus menurunkan berat badan kamu nih!. berat badan yang berlebih dapat beresiko untuk kesehatan tubuh, terutama serangan jantung dan penyakit lain nya.",
+        "selangkapnya" : "Jika hasil hitung indeks massa tubuh kamu lebih dari 30.00 maka berat badan kamu berada di kategori obesitas."
+    },
+    {
+        "keterangan" : "Data belum diinput",
+        "Deskripsi" : "Halo data kamu belum dimasukkan nih, isi kolom input berat badan dan tinggi badan ya. Agar bisa kami mulai kalkulasi nya",
+        "selangkapnya" : "Data yang kamu masukkan belum kamu input. kalkulator belum bisa memberikan hasil nya"
     }
 ]
