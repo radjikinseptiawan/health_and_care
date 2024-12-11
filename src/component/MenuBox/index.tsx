@@ -37,9 +37,6 @@ export default function MenuBox () : JSX.Element {
     }
    },[])
   
-   const handleButton1 = () : void =>{
-    window.location.href = "/"
-   }
   
     return(
     <>
