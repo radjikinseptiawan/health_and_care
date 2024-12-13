@@ -24,6 +24,7 @@
         "selangkapnya" : "Jika hasil hitung indeks massa tubuh kamu lebih dari 30.00 maka berat badan kamu berada di kategori obesitas."
     },
     {
+        "id":5,
         "keterangan" : "Data belum diinput",
         "Deskripsi" : "Halo data kamu belum dimasukkan nih, isi kolom input berat badan dan tinggi badan ya. Agar bisa kami mulai kalkulasi nya",
         "selangkapnya" : "Data yang kamu masukkan belum kamu input. kalkulator belum bisa memberikan hasil nya"

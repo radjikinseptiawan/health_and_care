@@ -1,6 +1,7 @@
 import { Article } from '@mui/icons-material'
 import details from '../../utils/detailsBody.json'
 import {Box, Paper} from '@mui/material'
+
 export default function ArticleIBM() : JSX.Element{
   return (
     <Box sx={{display:'flex',justifyContent:"center"}}>

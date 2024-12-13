@@ -10,7 +10,7 @@ const route = createBrowserRouter([
     path :"/",
     element : <Home></Home>
   },{
-    path:"/calc",
+    path:"/BMICalc",
     element : <Calc></Calc>
   }
 ])

@@ -2,6 +2,7 @@
 import { Box, Paper, Button } from "@mui/material"
 import dataHome from '../../utils/data.json'
 import { useState,useEffect } from "react"
+import { MeetingRoom } from "@mui/icons-material"
 
 interface screenInfo {
   width : number,
@@ -51,7 +52,7 @@ export default function MenuBox () : JSX.Element {
           </>
           )
         })}
-        <Button variant="contained" href="/calc">Let`s try</Button>
+        <Button variant="contained" href="/BMICalc" endIcon={<MeetingRoom/>}>Let`s try</Button>
         </Paper>
         <Paper sx={{p:2,m:2, borderRadius:2}}>
         
@@ -63,7 +64,7 @@ export default function MenuBox () : JSX.Element {
           </>
           )
         })}
-        <Button variant="contained" disabled>Let`s try</Button>
+        <Button variant="contained" endIcon={<MeetingRoom/>} disabled>Let`s try</Button>
         </Paper>
       </Box>
      </>

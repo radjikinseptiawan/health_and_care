@@ -1,13 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Box, Button, Fab, Input, InputLabel, Paper, Skeleton } from "@mui/material";
+import { Box, Button, Fab, Paper, Skeleton, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import details from '../../utils/detailsBody.json'
-import { ArrowBackIosNew } from "@mui/icons-material";
+import { ArrowBackIosNew, Calculate } from "@mui/icons-material";
 import LoadingButton from '@mui/lab/LoadingButton'
+import resource from '../../utils/resource.json'
+import './styles.css'
+
 
 interface DataIndeksTubuh {
   keterangan : string,
   deskripsi : string
+}
+
+interface ImageResouce{
+  source : string
 }
 
 export default function Calculator() : JSX.Element{
@@ -19,6 +26,9 @@ export default function Calculator() : JSX.Element{
       keterangan : details[4]?.keterangan, 
       deskripsi : details[4]?.Deskripsi
     })
+    const [resourcer,setResourcer] = useState< ImageResouce >({
+      source : "None.svg"
+    })
    
 
     useEffect(()=>{
@@ -26,13 +36,44 @@ export default function Calculator() : JSX.Element{
         setPending(false)
       },3000)
 
-    },[pending,result])
+      return ()=>{
+        setWeight('')
+        setHeight('')
+      }
+    },[pending,result,description])
 
     const pendingFunction = ()=>{
       setPending(true)
       return
     }
 
+    const updatePhotos = (bmi : number)=>{
+      if(bmi <= 18.5){
+        setResourcer(
+          {
+            source : resource[0].source
+          }
+        )
+      }else if(bmi > 18.5 && bmi < 24.9){
+        setResourcer(
+            {
+              source : resource[0].source
+            }
+        )
+      }else if(bmi >= 25 && bmi < 30 ){
+        setResourcer(
+          {
+            source : resource[0].source
+          }
+        )
+      }else{
+        setResourcer(
+          {
+            source : resource[0].source
+          }
+        )
+      }
+    }
 
     const calcIbm = ()=>{
     pendingFunction()
@@ -45,6 +86,7 @@ export default function Calculator() : JSX.Element{
         setWeight('')
         setHeight('')
         updateDescription(result)
+        updatePhotos(result)
     }
     }
   
@@ -77,21 +119,20 @@ export default function Calculator() : JSX.Element{
       <Paper sx={{p:2, textAlign:'center', width:600}}>
         <h1>Indeks Massa Badan</h1>
         <br/>
-        <InputLabel>Masukkan Berat Badan (kg)</InputLabel>
-        <Input type="number" sx={{mt:2,mb:2,width:300}} value={weight} placeholder="Masukkan Berat Badan (kg)" onChange={inputWeightValue}/>
+        <TextField type="number" label="Masukkan Berat Badan" required sx={{mt:2,mb:2,width:300}} value={weight} placeholder="Masukkan Berat Badan (kg)" helperText="Berat badan dalam satuan" onChange={inputWeightValue}/>
         <br/>
-        <InputLabel>Masukkan Tinggi Badan (cm)</InputLabel>
-        <Input type="number" sx={{mt:2,mb:2,width:300}} value={height} placeholder="Masukkan Tinggi Badan (cm)" onChange={inputHeightValue}/>
+        <TextField type="number" label="Masukkan Tinggi Badan" required sx={{mt:2,mb:2,width:300}} value={height} placeholder="Masukkan Tinggi Badan (cm)" onChange={inputHeightValue} helperText="Tinggi badan dalam satuan cm" />
         <br/>
-        {pending ? <LoadingButton loading variant="contained" sx={{p:2}}/> : <Button variant="contained" onClick={calcIbm}>Calc</Button> }
-        <h2>Hasil Hitung</h2>
+        {pending ? <LoadingButton loading variant="contained" sx={{p:2}}/> : <Button variant="contained" startIcon={<Calculate/>} onClick={calcIbm}>Calc</Button> }
+        {pending ? <h2>Menghitung...</h2> :<h2>Hasil Hitung</h2>}
       {pending ? 
-        <Skeleton variant="rounded" height={60}/>
+        <Skeleton variant="rounded" height={120}/>
       :
       <> 
       <h2>{result !== null ? result.toFixed(2) : '0.00'}</h2>
       {description && (
           <>
+            <img src={resourcer.source} width={'60px'}/>
             <h3>{description.keterangan}</h3>
             <p>{description.deskripsi}</p>
           </>
