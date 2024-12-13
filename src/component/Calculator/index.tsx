@@ -5,8 +5,8 @@ import details from '../../utils/detailsBody.json'
 import { ArrowBackIosNew, Calculate } from "@mui/icons-material";
 import LoadingButton from '@mui/lab/LoadingButton'
 import resource from '../../utils/resource.json'
-import './styles.css'
-
+import AOS from 'aos'
+import 'aos/dist/aos.css';
 
 interface DataIndeksTubuh {
   keterangan : string,
@@ -30,6 +30,18 @@ export default function Calculator() : JSX.Element{
       source : "None.svg"
     })
    
+
+    useEffect(()=>{
+      AOS.init(
+        {
+          duration:800,
+          offset:100,
+          easing:'ease-in-out',
+          once:true
+        }
+      )
+    },[])
+
 
     useEffect(()=>{
       setTimeout(()=>{
@@ -115,7 +127,7 @@ export default function Calculator() : JSX.Element{
   
     return(
     <>
-    <Box sx={{display:'flex', justifyContent:"center"}}>
+    <Box sx={{display:'flex', justifyContent:"center"}} data-aos ="fade-down">
       <Paper sx={{p:2, textAlign:'center', width:600}}>
         <h1>Indeks Massa Badan</h1>
         <br/>
@@ -142,7 +154,7 @@ export default function Calculator() : JSX.Element{
       </Paper>
     </Box>
     
-    <Fab sx={{position:"fixed",bottom:0, ml:2,mb:2}} href="/" size="large" color={"primary"}>
+    <Fab sx={{position:"fixed",bottom:10, ml:2,mb:2}} href="/" size="large" color={"primary"}>
           <ArrowBackIosNew/>
     </Fab>
     </>

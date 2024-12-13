@@ -3,6 +3,7 @@ import { Box, Paper, Button } from "@mui/material"
 import dataHome from '../../utils/data.json'
 import { useState,useEffect } from "react"
 import { MeetingRoom } from "@mui/icons-material"
+import AOS from 'aos'
 
 interface screenInfo {
   width : number,
@@ -21,6 +22,15 @@ interface screenInfo {
 export default function MenuBox () : JSX.Element {
   const [windowSize,setWindowSize] = useState<number>(windowInfo.availWidth)
   const [cssInfo,setCssInfo] = useState<string>('')
+
+  useEffect(()=>{
+      AOS.init({
+          duration:800,
+          offset:100,
+          easing:'ease-in-out',
+          once:false
+        })
+    },[])
 
   useEffect(()=>{
     const resize = () =>{
@@ -43,7 +53,7 @@ export default function MenuBox () : JSX.Element {
     <>
     <Box sx={{ml:2, textDecoration:'underline'}}><h1>Menu</h1></Box>
      <Box sx={{display:'flex',flexDirection: cssInfo}}>
-        <Paper sx={{p:2,m:2, borderRadius:2}}>
+        <Paper sx={{p:2,m:2, borderRadius:2}} data-aos="flip-left">
         {dataHome.map((home)=>{
           return(
           <>
@@ -54,7 +64,7 @@ export default function MenuBox () : JSX.Element {
         })}
         <Button variant="contained" href="/BMICalc" endIcon={<MeetingRoom/>}>Let`s try</Button>
         </Paper>
-        <Paper sx={{p:2,m:2, borderRadius:2}}>
+        <Paper sx={{p:2,m:2, borderRadius:2}} data-aos="flip-right">
         
         {dataHome.map((home)=>{
           return(
