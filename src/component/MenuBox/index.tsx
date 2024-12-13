@@ -63,7 +63,7 @@ export default function MenuBox () : JSX.Element {
           </>
           )
         })}
-        <Button variant="contained">Let`s try</Button>
+        <Button variant="contained" disabled>Let`s try</Button>
         </Paper>
       </Box>
      </>
