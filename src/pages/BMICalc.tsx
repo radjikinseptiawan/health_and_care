@@ -1,8 +1,8 @@
 import ArticleIBM from "../component/Article";
-import Calculator from "../component/Calculator";
+import Calculator from "../component/CalculatorBMI";
 
 
-export default function Calc() : JSX.Element {
+export default function CalcPageBMI() : JSX.Element {
 
   return (
     <>

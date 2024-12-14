@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/home.tsx'
-import Calc from './pages/calc.tsx'
+import CalcPageBMI from './pages/BMICalc.tsx'
+import CalorieCalc from './pages/CalorieCalc.tsx'
 
 const route = createBrowserRouter([
   {
@@ -11,7 +12,10 @@ const route = createBrowserRouter([
     element : <Home></Home>
   },{
     path:"/BMICalc",
-    element : <Calc></Calc>
+    element : <CalcPageBMI></CalcPageBMI>
+  },{
+    path:"/CalorieCalc",
+    element : <CalorieCalc></CalorieCalc>
   }
 ])
 
