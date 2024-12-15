@@ -27,7 +27,7 @@ export default function Calculator() : JSX.Element{
       deskripsi : details[4]?.Deskripsi
     })
     const [resourcer,setResourcer] = useState< ImageResouce >({
-      source : "None.svg"
+      source : "None.png"
     })
    
 
