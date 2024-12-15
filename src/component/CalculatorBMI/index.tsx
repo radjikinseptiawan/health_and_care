@@ -90,16 +90,22 @@ export default function Calculator() : JSX.Element{
     const calcIbm = ()=>{
     pendingFunction()
     setResult(null)
-    if(height && weight){
-        const heighter : number = height / 100
-        const result : number = weight / (heighter ** 2)
-        result.toFixed(2)
-        setResult(result)
-        setWeight('')
-        setHeight('')
-        updateDescription(result)
-        updatePhotos(result)
+    if(!height || !weight){
+      setResult(0)
+      setDescription({
+        keterangan : details[4].keterangan,
+        deskripsi : details[4].Deskripsi
+      })
+      setResourcer({source : "None.svg"})
+      return
     }
+    const heighter : number = height/100;
+    const bmi : number = weight / (heighter **2);
+    setResult(bmi)
+    setWeight("")
+    setHeight("")
+    updateDescription(bmi)
+    updatePhotos(bmi)
     }
   
     const updateDescription = (bmi: number) => {
@@ -111,6 +117,8 @@ export default function Calculator() : JSX.Element{
         setDescription({ keterangan: details[2].keterangan, deskripsi: details[2].Deskripsi });
       } else if(bmi >= 30) {
         setDescription({ keterangan: details[3].keterangan, deskripsi: details[3].Deskripsi });
+      } else if(bmi == 0){
+        setDescription({keterangan : details[4].keterangan, deskripsi : details[4].Deskripsi})
       }
     };
   
