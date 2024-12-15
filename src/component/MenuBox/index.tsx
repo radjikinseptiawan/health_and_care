@@ -74,7 +74,7 @@ export default function MenuBox () : JSX.Element {
           </>
           )
         })}
-        <Button variant="contained" href="/CalorieCalc" endIcon={<MeetingRoom/>}>Let`s try</Button>
+        <Button variant="contained" href="/CalorieCalc" endIcon={<MeetingRoom/>} disabled>Let`s try</Button>
         </Paper>
       </Box>
      </>
