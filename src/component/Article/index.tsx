@@ -4,8 +4,6 @@ import {Box, Paper} from '@mui/material'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import resource from '../../utils/resource.json'
-
 
 export default function ArticleIBM() : JSX.Element{
     useEffect(()=>{
@@ -28,7 +26,7 @@ export default function ArticleIBM() : JSX.Element{
                     <ul key={detail.id}>
                         <Paper sx={{p:4, display:'flex',alignItems:"center",justifyItems:"center"}} data-aos="fade-right">
                         <Box sx={{mx:2}}>
-                            <img src={resource[0].source} width={'60px'}/>
+                            <img src={detail.source} width={'60px'}/>
                         </Box>
                         <Box>
                             <li style={{listStyle:'none'}}>{detail.keterangan}</li>

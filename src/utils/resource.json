@@ -1,6 +1,17 @@
 [
     {
-        "type" : "icon",
         "source" : "None.svg"
+    },
+    {
+        "source":"ThinPeople.png"
+    },
+    {
+        "source":"IdealWeight.png"
+    },
+    {
+        "source":"Overweight.png"
+    },
+    {
+        "source":"ObesityWeight.png"
     }
 ]

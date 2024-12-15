@@ -63,25 +63,25 @@ export default function Calculator() : JSX.Element{
       if(bmi <= 18.5){
         setResourcer(
           {
-            source : resource[0].source
+            source : resource[1].source
           }
         )
       }else if(bmi > 18.5 && bmi < 24.9){
         setResourcer(
             {
-              source : resource[0].source
+              source : resource[2].source
             }
         )
       }else if(bmi >= 25 && bmi < 30 ){
         setResourcer(
           {
-            source : resource[0].source
+            source : resource[3].source
           }
         )
       }else{
         setResourcer(
           {
-            source : resource[0].source
+            source : resource[4].source
           }
         )
       }
@@ -109,7 +109,7 @@ export default function Calculator() : JSX.Element{
         setDescription({ keterangan: details[1].keterangan, deskripsi: details[1].Deskripsi });
       } else if (bmi >= 25 && bmi < 30) {
         setDescription({ keterangan: details[2].keterangan, deskripsi: details[2].Deskripsi });
-      } else {
+      } else if(bmi >= 30) {
         setDescription({ keterangan: details[3].keterangan, deskripsi: details[3].Deskripsi });
       }
     };
@@ -131,7 +131,7 @@ export default function Calculator() : JSX.Element{
       <Paper sx={{p:2, textAlign:'center', width:600}}>
         <h1>Indeks Massa Badan</h1>
         <br/>
-        <TextField type="number" label="Masukkan Berat Badan" required sx={{mt:2,mb:2,width:300}} value={weight} placeholder="Masukkan Berat Badan (kg)" helperText="Berat badan dalam satuan" onChange={inputWeightValue}/>
+        <TextField type="number" label="Masukkan Berat Badan" required sx={{mt:2,mb:2,width:300}} value={weight} placeholder="Masukkan Berat Badan (kg)" helperText="Berat badan dalam satuan kg" onChange={inputWeightValue}/>
         <br/>
         <TextField type="number" label="Masukkan Tinggi Badan" required sx={{mt:2,mb:2,width:300}} value={height} placeholder="Masukkan Tinggi Badan (cm)" onChange={inputHeightValue} helperText="Tinggi badan dalam satuan cm" />
         <br/>
@@ -144,7 +144,7 @@ export default function Calculator() : JSX.Element{
       <h2>{result !== null ? result.toFixed(2) : '0.00'}</h2>
       {description && (
           <>
-            <img src={resourcer.source} width={'60px'}/>
+            <img src={resourcer.source} width={resource[0].source ? '80px':'500px'}/>
             <h3>{description.keterangan}</h3>
             <p>{description.deskripsi}</p>
           </>
