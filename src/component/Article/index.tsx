@@ -1,6 +1,6 @@
 import { Article } from '@mui/icons-material'
 import details from '../../utils/detailsBody.json'
-import {Box, Paper} from '@mui/material'
+import {Box, Divider, List, ListItem, ListItemText, Paper} from '@mui/material'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -23,17 +23,15 @@ export default function ArticleIBM() : JSX.Element{
             {details.map(detail =>{
                 return(
                     <>
-                    <ul key={detail.id}>
-                        <Paper sx={{p:4, display:'flex',alignItems:"center",justifyItems:"center"}} data-aos="fade-right">
-                        <Box sx={{mx:2}}>
-                            <img src={detail.source} width={'60px'}/>
-                        </Box>
+                    <List key={detail.id}>
+                        <ListItem sx={{p:4, display:'flex',alignItems:"center",justifyItems:"center"}} data-aos="fade-right">
                         <Box>
-                            <li style={{listStyle:'none'}}>{detail.keterangan}</li>
-                            <p>{detail.selangkapnya}</p>
+                            <img src={detail.source} width={'100px'}/>
                         </Box>
-                        </Paper>
-                    </ul>
+                        <ListItemText primary={detail.keterangan} secondary={detail.selangkapnya}/>
+                        </ListItem>
+                        <Divider/>
+                    </List>
                     </>
                 )
             })}

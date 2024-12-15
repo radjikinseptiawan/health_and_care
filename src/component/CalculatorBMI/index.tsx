@@ -152,7 +152,7 @@ export default function Calculator() : JSX.Element{
       <h2>{result !== null ? result.toFixed(2) : '0.00'}</h2>
       {description && (
           <>
-            <img src={resourcer.source} width={resource[0].source ? '80px':'500px'}/>
+            <img src={resourcer.source} width={'100px'}/>
             <h3>{description.keterangan}</h3>
             <p>{description.deskripsi}</p>
           </>
