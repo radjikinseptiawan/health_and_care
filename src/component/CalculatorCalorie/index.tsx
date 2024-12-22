@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Box, Button, FormControl, FormControlLabel, FormLabel, InputAdornment, Paper, Radio, RadioGroup, Skeleton, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-
+import AOS from 'aos'
 
 export default function SetGender() {
     const [isMan,setIsMan] = useState(true)
@@ -11,6 +11,16 @@ export default function SetGender() {
     const [result,setResult] = useState<number | string>('???')
     const [pending,setPending] = useState<boolean>(false)
     
+    useEffect(()=>{
+        AOS.init({
+            duration:800,
+            offset:100,
+            easing:'ease-in-out',
+            once:false
+        })
+    })
+
+
     useEffect(()=>{
         setTimeout(()=>{
             setPending(false)
@@ -61,8 +71,8 @@ export default function SetGender() {
         
     return (
     <>
-        <Box sx={{mx:'auto', width:800}}>
-        <Paper sx={{p:4}}>
+        <Box sx={{mx:'auto'}}>
+        <Paper sx={{p:2,mt:3,textAlign:"center"}} data-aos="fade-down">
         <FormControl>
             <FormLabel sx={{textDecoration:"underline"}}>Gender kamu</FormLabel>
             <RadioGroup
@@ -77,7 +87,7 @@ export default function SetGender() {
         </FormControl>
         </Paper>
 
-        <Paper sx={{mt:2,p:2}}>
+        <Paper sx={{mt:2,p:2,textAlign:"center"}} data-aos="fade-down">
             <TextField
             label="Berat Badan"
             id="Berat-Badan"
@@ -95,7 +105,7 @@ export default function SetGender() {
                 }
             }}
             ></TextField>
-    
+            <br/>
             <TextField
             label="Tinggi Badan"
             id="Tinggi-Badan"
@@ -113,7 +123,7 @@ export default function SetGender() {
                 }
             }}
             ></TextField>
-            
+            <br/>            
             <TextField
             value={age}
             label="Umur"
@@ -135,7 +145,7 @@ export default function SetGender() {
         <Button variant="contained" color="primary" onClick={()=> chooseMode(weightBody,heightBody,age)}>Hitung</Button>
         </Paper>
         
-        <Paper sx={{p:4,mt:2,display:'flex',justifyContent:"center",alignItems:'center',flexDirection:"column"}}>
+        <Paper sx={{p:2,textAlign:"center",mt:2}} data-aos="fade-down">
            {pending ? <Typography variant="h5" gutterBottom>Menghitung...</Typography>: <Typography variant="h5" gutterBottom>
             Nilai Di Dapatkan</Typography>}
             {
