@@ -71,8 +71,8 @@ export default function SetGender() {
         
     return (
     <>
-        <Box sx={{mx:'auto',display:'flex',justifyItems:'center',flexDirection:"column",alignItems:"center"}}>
-        <Paper sx={{p:2,mt:3,textAlign:"center",width:'60%'}} data-aos="fade-down">
+        <Box sx={{display:'flex',justifyItems:'center',flexDirection:'column'}}>
+        <Paper sx={{p:2,textAlign:"center",width:500}} data-aos="fade-down">
         <FormControl>
             <FormLabel sx={{textDecoration:"underline"}}>Gender kamu</FormLabel>
             <RadioGroup
@@ -87,12 +87,12 @@ export default function SetGender() {
         </FormControl>
         </Paper>
 
-        <Paper sx={{mt:2,p:2,textAlign:"center",width:'60%'}} data-aos="fade-down">
+        <Paper sx={{p:2,textAlign:"center",width:500}} data-aos="fade-down">
             <TextField
             label="Berat Badan"
             id="Berat-Badan"
             value={weightBody}
-            sx={{m:1,width:'25ch'}}
+            sx={{mt:2,mb:2,width:300}}
             type="number"
             onChange={weightBodyPross}
             inputProps={{
@@ -109,7 +109,7 @@ export default function SetGender() {
             <TextField
             label="Tinggi Badan"
             id="Tinggi-Badan"
-            sx={{m:1,width:'25ch'}}
+            sx={{mt:2,mb:2,width:300}}
             type="number"
             value={heightBody}
             onChange={heightBodyPross}
@@ -128,7 +128,7 @@ export default function SetGender() {
             value={age}
             label="Umur"
             id="umur"
-            sx={{m:1,width:'25ch'}}
+            sx={{mt:2,mb:2,width:300}}
             type="number"
             onChange={ageBodyPross}
             inputProps={{
@@ -145,7 +145,7 @@ export default function SetGender() {
         <Button variant="contained" color="primary" onClick={()=> chooseMode(weightBody,heightBody,age)}>Hitung</Button>
         </Paper>
         
-        <Paper sx={{width:'60%',p:2,textAlign:"center",mt:2}} data-aos="fade-down">
+        <Paper sx={{width:500,p:2,textAlign:"center",mt:2}} data-aos="fade-down">
            {pending ? <Typography variant="h5" gutterBottom>Menghitung...</Typography>: <Typography variant="h5" gutterBottom>
             Nilai Di Dapatkan</Typography>}
             {
