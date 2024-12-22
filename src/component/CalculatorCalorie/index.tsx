@@ -1,13 +1,32 @@
-import { Box, Button, FormControl, FormControlLabel, FormLabel, InputAdornment, Paper, Radio, RadioGroup, TextField } from "@mui/material";
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Box, Button, FormControl, FormControlLabel, FormLabel, InputAdornment, Paper, Radio, RadioGroup, Skeleton, TextField, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
 
 export default function SetGender() {
     const [isMan,setIsMan] = useState(true)
-    const [weightBody,setWeightBody] = useState<number>(0)
-    const [heightBody,setHeightBody] = useState<number>(0)
-    const [age,setAge] = useState<number>(0)
+    const [weightBody,setWeightBody] = useState<number | any>()
+    const [heightBody,setHeightBody] = useState<number | any >()
+    const [age,setAge] = useState<number | any>()
     const [result,setResult] = useState<number | string>('???')
+    const [pending,setPending] = useState<boolean>(false)
+    
+    useEffect(()=>{
+        setTimeout(()=>{
+            setPending(false)
+        },3000)
+
+        return ()=>{
+        setHeightBody('')
+        setWeightBody('')
+        setAge('')
+        }
+    },[result])
+
+    const pendingFunction = ()=>{
+        setPending(true)
+        return
+    }
 
     const checkRadio = () : void =>{
         if(isMan){
@@ -17,6 +36,7 @@ export default function SetGender() {
         }
     }
     const chooseMode = (weightBody : number,heightBody : number ,age : number ) =>{
+       pendingFunction()
         if (isMan){
             const BMR = 88.362 + (13.397 * weightBody) + (4.799 * heightBody) - (5.677 * age)
             setResult(BMR.toFixed(2) + ' kcal')
@@ -61,6 +81,7 @@ export default function SetGender() {
             <TextField
             label="Berat Badan"
             id="Berat-Badan"
+            value={weightBody}
             sx={{m:1,width:'25ch'}}
             type="number"
             onChange={weightBodyPross}
@@ -80,6 +101,7 @@ export default function SetGender() {
             id="Tinggi-Badan"
             sx={{m:1,width:'25ch'}}
             type="number"
+            value={heightBody}
             onChange={heightBodyPross}
             inputProps={{
                 min:0,
@@ -93,6 +115,7 @@ export default function SetGender() {
             ></TextField>
             
             <TextField
+            value={age}
             label="Umur"
             id="umur"
             sx={{m:1,width:'25ch'}}
@@ -112,9 +135,17 @@ export default function SetGender() {
         <Button variant="contained" color="primary" onClick={()=> chooseMode(weightBody,heightBody,age)}>Hitung</Button>
         </Paper>
         
-        <Paper sx={{p:4,mt:2}}>
-            <h1>{result == '???' ? 'Nilai Belum Di Definiskan' : 'Nilai Terdefinisi'}</h1>
-            <h2>{result}</h2>
+        <Paper sx={{p:4,mt:2,display:'flex',justifyContent:"center",alignItems:'center',flexDirection:"column"}}>
+           {pending ? <Typography variant="h5" gutterBottom>Menghitung...</Typography>: <Typography variant="h5" gutterBottom>
+            Nilai Di Dapatkan</Typography>}
+            {
+            pending ? 
+                <Skeleton variant="rounded" width={210} height={60} />
+                :
+                <Typography variant="subtitle1" gutterBottom>
+                    {result}
+                </Typography>
+            }
         </Paper>
     </Box>
     
