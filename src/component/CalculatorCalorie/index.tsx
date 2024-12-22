@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Box, Button, FormControl, FormControlLabel, FormLabel, InputAdornment, Paper, Radio, RadioGroup, Skeleton, TextField, Typography } from "@mui/material";
+import { Box, Button, Fab, FormControl, FormControlLabel, FormLabel, InputAdornment, Paper, Radio, RadioGroup, Skeleton, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import AOS from 'aos'
 import { LoadingButton } from "@mui/lab";
+import { ArrowBackIosNew } from "@mui/icons-material";
 
 export default function SetGender() {
     const [isMan,setIsMan] = useState(true)
@@ -72,7 +73,7 @@ export default function SetGender() {
         
     return (
     <>
-        <Box sx={{display:'flex',justifyItems:'center',flexDirection:'column'}}>
+        <Box sx={{display:'flex',justifyItems:'center',alignItems:'center',flexDirection:'column'}}>
         <Paper sx={{p:2,textAlign:"center",width:500}} data-aos="fade-down">
         <FormControl>
             <FormLabel sx={{textDecoration:"underline"}}>Gender kamu</FormLabel>
@@ -88,7 +89,7 @@ export default function SetGender() {
         </FormControl>
         </Paper>
 
-        <Paper sx={{p:2,textAlign:"center",width:500}} data-aos="fade-down">
+        <Paper sx={{p:2,mt:2,textAlign:"center",width:500}} data-aos="fade-down">
             <TextField
             label="Berat Badan"
             id="Berat-Badan"
@@ -165,8 +166,11 @@ export default function SetGender() {
                 </Typography>
             }
         </Paper>
+        
+    <Fab sx={{position:'fixed',left:3, bottom:10, ml:2,mb:2,zIndex:2}} href="/" size="large" color={"primary"}>
+          <ArrowBackIosNew/>
+    </Fab>
     </Box>
-    
 
     </>
   )
