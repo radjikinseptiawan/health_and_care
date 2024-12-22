@@ -2,6 +2,7 @@
 import { Box, Button, FormControl, FormControlLabel, FormLabel, InputAdornment, Paper, Radio, RadioGroup, Skeleton, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import AOS from 'aos'
+import { LoadingButton } from "@mui/lab";
 
 export default function SetGender() {
     const [isMan,setIsMan] = useState(true)
@@ -142,15 +143,22 @@ export default function SetGender() {
             }}
             ></TextField>
         <br></br>
-        <Button variant="contained" color="primary" onClick={()=> chooseMode(weightBody,heightBody,age)}>Hitung</Button>
+        {
+            pending ? 
+            <LoadingButton loading variant="contained" sx={{p:2}}/>
+            : 
+            <Button variant="contained" color="primary" onClick={()=> chooseMode(weightBody,heightBody,age)}>Hitung</Button>
+        }
         </Paper>
         
-        <Paper sx={{width:500,p:2,textAlign:"center",mt:2}} data-aos="fade-down">
+        <Paper sx={{width:500,p:2,display:'flex',flexDirection:"column",justifyContent:"center",alignItems:'center',mt:2}} data-aos="fade-down">
            {pending ? <Typography variant="h5" gutterBottom>Menghitung...</Typography>: <Typography variant="h5" gutterBottom>
             Nilai Di Dapatkan</Typography>}
             {
             pending ? 
-                <Skeleton variant="rounded" width={210} height={60} />
+                <Box sx={{mx:'auto'}}>
+                <Skeleton variant="rounded" width={300} height={60} />
+                </Box>
                 :
                 <Typography variant="subtitle1" gutterBottom>
                     {result}
