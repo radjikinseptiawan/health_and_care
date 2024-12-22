@@ -161,7 +161,6 @@ export default function Calculator() : JSX.Element{
       }
       </Paper>
     </Box>
-    
     <Fab sx={{position:"fixed",bottom:10, ml:2,mb:2}} href="/" size="large" color={"primary"}>
           <ArrowBackIosNew/>
     </Fab>

@@ -72,7 +72,7 @@ export default function SetGender() {
     return (
     <>
         <Box sx={{mx:'auto',display:'flex',justifyItems:'center',flexDirection:"column",alignItems:"center"}}>
-        <Paper sx={{p:2,mt:3,textAlign:"center",width:600}} data-aos="fade-down">
+        <Paper sx={{p:2,mt:3,textAlign:"center",width:'60%'}} data-aos="fade-down">
         <FormControl>
             <FormLabel sx={{textDecoration:"underline"}}>Gender kamu</FormLabel>
             <RadioGroup
@@ -87,7 +87,7 @@ export default function SetGender() {
         </FormControl>
         </Paper>
 
-        <Paper sx={{mt:2,p:2,textAlign:"center",width:600}} data-aos="fade-down">
+        <Paper sx={{mt:2,p:2,textAlign:"center",width:'60%'}} data-aos="fade-down">
             <TextField
             label="Berat Badan"
             id="Berat-Badan"
@@ -145,7 +145,7 @@ export default function SetGender() {
         <Button variant="contained" color="primary" onClick={()=> chooseMode(weightBody,heightBody,age)}>Hitung</Button>
         </Paper>
         
-        <Paper sx={{width:600,p:2,textAlign:"center",mt:2}} data-aos="fade-down">
+        <Paper sx={{width:'60%',p:2,textAlign:"center",mt:2}} data-aos="fade-down">
            {pending ? <Typography variant="h5" gutterBottom>Menghitung...</Typography>: <Typography variant="h5" gutterBottom>
             Nilai Di Dapatkan</Typography>}
             {
